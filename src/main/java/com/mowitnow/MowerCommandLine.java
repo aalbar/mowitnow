@@ -2,6 +2,7 @@ package com.mowitnow;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MowerCommandLine {
@@ -20,17 +21,21 @@ public class MowerCommandLine {
             String line = scanner.nextLine();
             if (lineNumber == 0) {
                 field = initField(line);
-            } else {
+            } else if (lineNumber == 1) {
                 String[] values = line.split(" ");
                 position = getPosition(values);
                 direction = values[2];
+            } else {
+
+                List<Command> commands = CommandConverter.convert(line);
             }
             lineNumber++;
         }
         mower = new Mower(field, position, direction);
     }
 
-    private static Position getPosition(String[] values) {
+
+    private Position getPosition(String[] values) {
         return new Position(Integer.parseInt(values[0]), Integer.parseInt(values[1]));
     }
 

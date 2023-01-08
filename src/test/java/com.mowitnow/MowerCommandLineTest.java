@@ -30,4 +30,27 @@ public class MowerCommandLineTest {
         Assertions.assertEquals(2, mowerCommandLine.getMower().getPosition().getY());
 
     }
+
+    @Test
+    void should_read_file_and_execute_one_cycle_of_commands() throws URISyntaxException {
+
+        //Given
+        URL resource = getClass().getClassLoader().getResource("test1.txt");
+        File file = new File(resource.toURI());
+
+        //When
+        MowerCommandLine mowerCommandLine = null;
+        try {
+            mowerCommandLine = new MowerCommandLine(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        //Then
+        Assertions.assertEquals(1, mowerCommandLine.getMower().getPosition().getX());
+        Assertions.assertEquals(3, mowerCommandLine.getMower().getPosition().getY());
+        Assertions.assertEquals("N", mowerCommandLine.getMower().getDirection());
+
+    }
+
 }
