@@ -17,23 +17,27 @@ public class MowerCommandLine {
         Direction direction = null;
         List<Command> commands = null;
 
-        int lineNumber = 0;
+        if (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            field = initField(line);
+        }
+
+        int lineNumber = 1;
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if (lineNumber == 0) {
-                field = initField(line);
-            } else if (lineNumber == 1) {
+            if (lineNumber % 2 == 1) {
                 String[] values = line.split(" ");
                 position = getPosition(values);
                 direction = convertDirection(values);
             } else {
-
                 commands = CommandConverter.convert(line);
+                mower = new Mower(field, position, direction);
+                mower.apply(commands);
+                System.out.println(String.format("Position %d %d %s", mower.getPosition().getX(), mower.getPosition().getY(), mower.getDirection()));
             }
             lineNumber++;
         }
-        mower = new Mower(field, position, direction);
-        mower.apply(commands);
+
     }
 
 
