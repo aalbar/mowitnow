@@ -8,12 +8,12 @@ class MowerTest {
     @Test
     void should_initiate_field_with_h5_and_l5() {
         //Given
-        String line = "5 5";
         Mower mower;
+        Field field = new Field(6, 6);
 
 
         //When
-        mower = new Mower(line, "0 0 L");
+        mower = new Mower(field, null, null);
 
         //Then
         Assertions.assertEquals(6, mower.getField().getLength());
@@ -24,12 +24,12 @@ class MowerTest {
     @Test
     void should_initiate_position_1_2_N_given_field_5_5() {
         //Given
-        String line = "5 5";
-        String line2 = "1 2 N";
+        Position position = new Position(1, 2);
+        String direction = "N";
         Mower mower;
 
         //When
-        mower = new Mower(line, line2);
+        mower = new Mower(null, position, direction);
 
         //Then
         Assertions.assertEquals(1, mower.getPosition().getX());
