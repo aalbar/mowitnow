@@ -8,7 +8,9 @@ import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-public class MowerCommandLineTest {
+import static com.mowitnow.Direction.N;
+
+class MowerCommandLineTest {
 
     @Test
     void should_read_file_and_init_mower() throws URISyntaxException {
@@ -49,7 +51,7 @@ public class MowerCommandLineTest {
         //Then
         Assertions.assertEquals(1, mowerCommandLine.getMower().getPosition().getX());
         Assertions.assertEquals(3, mowerCommandLine.getMower().getPosition().getY());
-        Assertions.assertEquals("N", mowerCommandLine.getMower().getDirection());
+        Assertions.assertEquals(N, mowerCommandLine.getMower().getDirection());
 
     }
 
