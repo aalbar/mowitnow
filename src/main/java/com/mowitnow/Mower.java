@@ -41,22 +41,22 @@ public class Mower {
     private void move() {
         switch (direction) {
             case E -> {
-                if (this.position.getX() > 1) {
-                    this.position = new Position(position.getX() - 1, position.getY());
-                }
-            }
-            case W -> {
-                if (this.position.getX() < field.getLength() - 2) {
+                if (this.position.getX() < field.getLength() - 1) {
                     this.position = new Position(position.getX() + 1, position.getY());
                 }
             }
+            case W -> {
+                if (this.position.getX() > 0) {
+                    this.position = new Position(position.getX() - 1, position.getY());
+                }
+            }
             case N -> {
-                if (this.position.getY() < field.getLength() - 2) {
+                if (this.position.getY() < field.getLength() - 1) {
                     this.position = new Position(position.getX(), position.getY() + 1);
                 }
             }
             case S -> {
-                if (this.position.getY() > 1) {
+                if (this.position.getY() > 0) {
                     this.position = new Position(position.getX(), position.getY() - 1);
                 }
             }
