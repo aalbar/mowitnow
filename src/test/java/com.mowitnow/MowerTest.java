@@ -9,15 +9,15 @@ public class MowerTest {
     void should_initiate_field_with_h5_and_l5() {
         //Given
         String line = "5 5";
-        Mower mower = new Mower();
+        Mower mower;
 
 
         //When
-        mower.initField(line);
+        mower = new Mower(line);
 
         //Then
-        Assertions.assertEquals(mower.getFieldLength(), 6);
-        Assertions.assertEquals(mower.getFieldHeight(), 6);
+        Assertions.assertEquals(mower.getField().getLength(), 6);
+        Assertions.assertEquals(mower.getField().getHeight(), 6);
 
     }
 }

@@ -2,22 +2,20 @@ package com.mowitnow;
 
 public class Mower {
 
-    private int fieldLength;
-
-    private int fieldHeight;
+    private final Field field;
 
 
-    public void initField(String line) {
+    public Mower(String line) {
+        field = initfield(line);
+    }
+
+    private Field initfield(String line) {
         String[] values = line.split(" ");
-        this.fieldLength = Integer.parseInt(values[0]) + 1;
-        this.fieldHeight = Integer.parseInt(values[1]) + 1;
+        return new Field(Integer.parseInt(values[0]) + 1, Integer.parseInt(values[1]) + 1);
     }
 
-    public int getFieldLength() {
-        return fieldLength;
+    public Field getField() {
+        return field;
     }
 
-    public int getFieldHeight() {
-        return fieldHeight;
-    }
 }
