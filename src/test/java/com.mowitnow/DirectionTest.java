@@ -3,10 +3,10 @@ package com.mowitnow;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class DirectionTest {
+class DirectionTest {
 
     @Test
-    void should_turn_left(){
+    void should_turn_left() {
         Assertions.assertEquals(Direction.S, Direction.W.getLeft());
         Assertions.assertEquals(Direction.E, Direction.S.getLeft());
         Assertions.assertEquals(Direction.N, Direction.E.getLeft());
@@ -14,7 +14,7 @@ public class DirectionTest {
     }
 
     @Test
-    void should_turn_right(){
+    void should_turn_right() {
         Assertions.assertEquals(Direction.N, Direction.W.getRight());
         Assertions.assertEquals(Direction.W, Direction.S.getRight());
         Assertions.assertEquals(Direction.S, Direction.E.getRight());

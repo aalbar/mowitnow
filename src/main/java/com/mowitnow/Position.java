@@ -17,4 +17,8 @@ public class Position {
     public int getY() {
         return y;
     }
+
+    public boolean isValidPosition(Field field) {
+        return field != null && (this.x < field.getLength() - 1) && this.y < field.getHeight() - 1;
+    }
 }

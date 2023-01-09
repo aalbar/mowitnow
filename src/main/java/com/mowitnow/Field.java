@@ -17,4 +17,6 @@ public class Field {
     public int getHeight() {
         return height;
     }
+
+
 }
